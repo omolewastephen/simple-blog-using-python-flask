@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog | Register</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+</head>
+<body>
+<nav class="nav navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			<a class="navbar-brand" href="/">Flask Blog </a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar">
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/login">Login</a></li>
+				<li><a href="/register">Register</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container"  style="margin-top: 2%"> 
+ <div class="row">
+	<div class="col-md-12">
+ 	<div class="col-md-9 main">
+		<h4 style="margin-bottom: 1em;font-weight: 600;color: #3A3A3A;">Sign Up</h4>
+		{% with messages = get_flashed_messages(with_categories = true) %}
+			{% if messages %}
+			{% for category,message in messages %}
+			<div class="{{ category }}">{{ message }}</div>
+			{% endfor %}
+			{% endif %}
+		{% endwith %}
+ 		<form method="post" action="/register" autocomplete="off">
+	 		<div class="form-group">
+	 			<label>Username</label>
+	 			<input type="text" name="username" class="form-control" placeholder="username" required>
+	 		</div>
+
+	 		<div class="form-group">
+	 			<label>Email</label>
+	 			<input type="email" name="email" class="form-control" placeholder="Email" required>
+	 		</div>
+
+	 		<div class="form-group">
+	 			<label>Password</label>
+	 			<input type="password" name="password" class="form-control" placeholder="Password" required>
+	 		</div>
+
+	 		<div class="form-group">
+	 			<label>Confirm Password</label>
+	 			<input type="password" name="cpassword" class="form-control" placeholder="Confirm Password" required>
+	 		</div>
+
+
+	 		<button class="btn btn-md btn-primary" name="submit">Register</button>
+		 </form>
+		 <hr>
+		<a href="/register"><b>Already a member? Sign in.</b></a>
+ 	</div>
+ 	
+	 </div>
+ </div>
+</div>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

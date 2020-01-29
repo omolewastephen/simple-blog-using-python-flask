@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog | Post </title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+</head>
+<body>
+    <nav class="nav navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				<a class="navbar-brand" href="/">Flask Blog </a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+				{% if session %}
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/post">Post</a></li>
+					<li><a href="{{ url_for('profile')  }}">Hi, {{session['username']}}</a></li>
+					<li><a href="/logout">Log Out</a></li>
+				</ul>
+				{% else %} 
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/login">Login</a></li>
+					<li><a href="/register">Register</a></li>
+				</ul>
+				{% endif %}
+			</div>
+		</div>
+	</nav>
+
+
+<div class="container"  style="margin-top: 2%"> 
+ <div class="row">
+	<div class="col-md-12 ">
+		<div class="col-md-9 main">
+            <h3>Create Post</h3>
+            {% with messages = get_flashed_messages(with_categories = true) %}
+                {% if messages %}
+                {% for category,message in messages %}
+                <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method="post" action="/post" enctype="multipart/form-data" autocomplete="off">
+                <div class="form-group">
+                    <label class="control-label">Title</label>
+                    <input type="text" name="title" placeholder="Blog title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Content</label>
+                    <textarea  name="content" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Thumbnail</label>
+                    <input type="file" name="thumbnail" class="form-control" required>
+                </div>
+                <button class="btn btn-md btn-primary" type="submit">Submit</button>
+            </form>
+		</div>
+		
+	 </div>
+ </div>
+</div>
+</body>
+<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content' );
+</script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>

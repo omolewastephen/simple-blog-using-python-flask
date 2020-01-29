@@ -1,0 +1,66 @@
+body,html{
+	font-size: 15px;
+	line-height: 25px;
+	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	font-family: "Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	background-color: rgb(236, 232, 232);
+}
+.main{
+	padding: 20px;
+	background-color: #fff
+}
+.blog{
+	margin-bottom:50px;
+}
+.blog .title h3 > a, .main > h3{
+	font-weight: 600;
+	font-size: 40px;
+	font-family:Helvetica, sans-serif;
+	color:#3A3A3A;
+	text-decoration: none;
+}
+.content p{
+	font-size: 16px;
+	line-height: 25px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif  
+}
+.navbar-inverse .navbar-brand{
+	color: #FFF;
+	font-weight: 600;
+}
+.main > h4{
+	font-weight: 600;
+	font-size: 20px;
+	font-family:Helvetica, sans-serif;
+	color:#3A3A3A;
+	text-decoration: none;
+}
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+.footer{
+	margin-top: 5%;
+}
+.footer p{
+	font-weight: bold;
+}
+.footer span{
+	color: red;
+}

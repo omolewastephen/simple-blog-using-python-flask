@@ -1,0 +1,26 @@
+{% block nav %}
+<nav class="nav navbar-default">
+	<div class="container">
+		<div class="navbar-brand">
+			<a href="/">My Blog </a>
+		</div>
+		<ul class="nav navbar-nav navbar">
+			<li><a href="/">Home</a></li>
+			<li><a href="/about">About</a></li>
+		</ul>
+		 {% if session %}
+		 <ul class="nav navbar-nav navbar-right">
+			<li><a href="/post">Post</a></li>
+			<li><a href="{{ url_for('profile')  }}">Hi, {{session['username']}}</a></li>
+			<li><a href="/logout">Log Out</a></li>
+		</ul>
+		{% else %} 
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="/login">Login</a></li>
+			<li><a href="/register">Register</a></li>
+		</ul>
+		{% endif %}
+		
+	</div>
+</nav>
+{% endblock %}
