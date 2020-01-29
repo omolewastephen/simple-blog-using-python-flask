@@ -5,7 +5,7 @@ import os
 from werkzeug.utils import secure_filename
 from datetime import datetime
 
-conn = pymysql.connect(host='localhost',user='root',password='',db='blog',charset='utf8mb4',cursorclass=pymysql.cursors.DictCursor)
+conn = pymysql.connect(host='us-cdbr-iron-east-04.cleardb.net',user='be63818bc210f6',password='e9fbc669',db='heroku_0a5cc94ab1f62bc',charset='utf8mb4',cursorclass=pymysql.cursors.DictCursor)
 blog = Flask(__name__)
 blog.secret_key = 'omolewasteve'
 UPLOAD_FOLDER = 'static/uploads/thumbnails/'
